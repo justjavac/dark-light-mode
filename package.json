@@ -1,0 +1,28 @@
+{
+  "name": "dark-light-mode",
+  "version": "0.1.0",
+  "description": "🌒 toggles dark mode... Really? Try it",
+  "main": "./src/dark-light-mode.mjs",
+  "browser": "./src/dark-light-mode.mjs",
+  "module": "./src/dark-light-mode.mjs",
+  "exports": "./src/dark-light-mode.mjs",
+  "unpkg": "./src/dark-light-mode.mjs",
+  "files": [
+    "src"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/justjavac/dark-light-mode.git"
+  },
+  "keywords": [
+    "dark",
+    "mode",
+    "Web Component"
+  ],
+  "author": "justjavac <justjavac@gmail.com> (https://justjavac.com/)",
+  "bugs": {
+    "url": "https://github.com/justjavac/dark-light-mode/issues"
+  },
+  "homepage": "https://github.com/justjavac/dark-light-mode#readme",
+  "license": "MIT"
+}
