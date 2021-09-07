@@ -40,9 +40,12 @@ Use CDN:
 
 ## Demo
 
-There is a [live demo](https://unpkg.com/dark-light-mode/demo/index.html), it's a web page of "The Art of War"(Chinese: 孙子兵法, Twenty-Five Hundred years ago, Sun Tzu wrote this classic book of military strategy based on Chinese warfare and military thought).
+There is a [live demo](https://unpkg.com/dark-light-mode/demo/index.html), it's
+a web page of "The Art of War"(Chinese: 孙子兵法, Twenty-Five Hundred years ago, Sun
+Tzu wrote this classic book of military strategy based on Chinese warfare and
+military thought).
 
 ## License
 
-[dark-light-mode](https://github.com/justjavac/dark-light-mode) is released under the
-MIT License. See the bundled [LICENSE](./LICENSE) file for details.
+[dark-light-mode](https://github.com/justjavac/dark-light-mode) is released
+under the MIT License. See the bundled [LICENSE](./LICENSE) file for details.
