@@ -1,6 +1,6 @@
 {
   "name": "dark-light-mode",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "🌒 toggles dark mode... Really? Try it",
   "main": "./src/dark-light-mode.mjs",
   "browser": "./src/dark-light-mode.mjs",
