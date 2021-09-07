@@ -1,6 +1,6 @@
 {
   "name": "dark-light-mode",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "🌒 toggles dark mode... Really? Try it",
   "main": "./src/dark-light-mode.mjs",
   "browser": "./src/dark-light-mode.mjs",
@@ -8,7 +8,8 @@
   "exports": "./src/dark-light-mode.mjs",
   "unpkg": "./src/dark-light-mode.mjs",
   "files": [
-    "src"
+    "src",
+    "demo"
   ],
   "repository": {
     "type": "git",
