@@ -123,8 +123,10 @@ function turnOnLight(e) {
     min-height: 100vh;
     pointer-events: none;
     background: radial-gradient(
-      circle at var(--dark-light-mode-x, ${e.pageX}px) var(--dark-light-mode-y, ${e.pageY}px),
-      rgb(255, 255, 255, 0.1),
+      circle at 
+      var(--dark-light-mode-x, ${e.pageX + left}px) 
+      var(--dark-light-mode-y, ${e.pageY + top}px),
+      rgb(255, 255, 0, 0.3),
       rgb(0, 0, 0, 1) 200px
     );
   }`;
@@ -143,9 +145,10 @@ function turnOffLight() {
 }
 
 function updateLight(e) {
+  const { top, left } = document.body.getBoundingClientRect();
   const root = document.documentElement;
-  root.style.setProperty("--dark-light-mode-x", `${e.pageX}px`);
-  root.style.setProperty("--dark-light-mode-y", `${e.pageY}px`);
+  root.style.setProperty("--dark-light-mode-x", `${e.pageX + left}px`);
+  root.style.setProperty("--dark-light-mode-y", `${e.pageY + top}px`);
 }
 
 class DarkLightMode extends HTMLElement {
