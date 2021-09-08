@@ -144,7 +144,7 @@ function turnOffLight() {
 }
 
 function updateLight(e) {
-  const { top, left } = document.body.getBoundingClientRect();
+  if (!e.pageX || !e.pageY) return;
   const root = document.documentElement;
   root.style.setProperty("--dark-light-mode-x", `${e.pageX}px`);
   root.style.setProperty("--dark-light-mode-y", `${e.pageY}px`);
