@@ -6,7 +6,7 @@ template.innerHTML = `<style>
 
     :host{
       contain:content;
-      display:block
+      display:inline-block;
     }
 
     :host img {
