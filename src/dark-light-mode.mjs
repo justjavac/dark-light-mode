@@ -69,7 +69,7 @@ template.innerHTML = `<style>
         right: 5px;
     }
 
-    .toggle.dark .track .check, .toggle.dark .track .x{
+    .toggle.dark .track .check, .toggle.dark .track .x {
         opacity: 1;
         transition: opacity .25s ease;
     }
@@ -150,8 +150,15 @@ function updateLight(e) {
   console.log(e, 3);
   if (!e.pageX || !e.pageY) return;
   const root = document.documentElement;
-  root.style.setProperty("--dark-light-mode-x", `${e.pageX}px`);
-  root.style.setProperty("--dark-light-mode-y", `${e.pageY}px`);
+
+  let pageX = e.pageX;
+  let pageY = e.pageY;
+  if (window.innerWidth > 768) {
+    pageX -= 60;
+    pageY -= 60;
+  }
+  root.style.setProperty("--dark-light-mode-y", `${pageY}px`);
+  root.style.setProperty("--dark-light-mode-x", `${pageX}px`);
 }
 
 class DarkLightMode extends HTMLElement {
