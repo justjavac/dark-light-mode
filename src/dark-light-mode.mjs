@@ -4,12 +4,12 @@
 const template = document.createElement("template");
 template.innerHTML = `<style>
     *,::after,::before{
-      box-sizing:border-box
+      box-sizing: border-box
     }
 
     :host{
-      contain:content;
-      display:inline-block;
+      contain: content;
+      display: inline-block;
     }
 
     :host img {
@@ -147,6 +147,7 @@ function turnOffLight() {
 }
 
 function updateLight(e) {
+  console.log(e, 3);
   if (!e.pageX || !e.pageY) return;
   const root = document.documentElement;
   root.style.setProperty("--dark-light-mode-x", `${e.pageX}px`);
@@ -154,10 +155,6 @@ function updateLight(e) {
 }
 
 class DarkLightMode extends HTMLElement {
-  constructor() {
-    super();
-  }
-
   connectedCallback() {
     const shadowRoot = this.attachShadow({ mode: "closed" });
     shadowRoot.appendChild(template.content.cloneNode(true));
