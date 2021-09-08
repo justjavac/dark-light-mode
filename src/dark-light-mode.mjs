@@ -107,8 +107,6 @@ template.innerHTML = `<style>
   </div>
 `;
 
-const originStyle = document.body.getAttribute("style");
-
 function turnOnLight(e) {
   const { top, left, right, bottom } = document.body.getBoundingClientRect();
   const style = document.createElement("style");
