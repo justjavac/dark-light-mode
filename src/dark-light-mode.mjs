@@ -1,3 +1,6 @@
+// Copyright 2021 justjavac. All rights reserved. MIT license.
+// GitHub: https://github.com/justjavac/dark-light-mode
+
 const template = document.createElement("template");
 template.innerHTML = `<style>
     *,::after,::before{
