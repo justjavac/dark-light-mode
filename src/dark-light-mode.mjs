@@ -110,27 +110,42 @@ template.innerHTML = `<style>
 const originStyle = document.body.getAttribute("style");
 
 function turnOnLight(e) {
-  document.body.style.minHeight = "100vh";
+  const { top, left, right, bottom } = document.body.getBoundingClientRect();
+  const style = document.createElement("style");
+  style.id = "dark-light-mode-style";
+  style.innerText = `body::after {
+    content: "";
+    position:absolute;
+    top: -${top}px;
+    left: -${left}px;
+    height: ${bottom}px;
+    width: ${right}px;
+    min-height: 100vh;
+    pointer-events: none;
+    background: radial-gradient(
+      circle at var(--dark-light-mode-x, ${e.pageX}px) var(--dark-light-mode-y, ${e.pageY}px),
+      rgb(255, 255, 255, 0.1),
+      rgb(0, 0, 0, 1) 200px
+    );
+  }`;
+  document.head.appendChild(style);
   ["mousemove", "touchstart", "touchmove", "touchend"].forEach((x) => {
     document.addEventListener(x, updateLight, false);
   });
-  updateLight(e);
 }
 
 function turnOffLight() {
-  if (originStyle === null) {
-    document.body.removeAttribute("style");
-  } else {
-    document.body.setAttribute("style", originStyle);
-  }
+  const el = document.querySelector("#dark-light-mode-style");
+  el.parentNode.removeChild(el);
   ["mousemove", "touchstart", "touchmove", "touchend"].forEach((x) => {
     document.removeEventListener(x, updateLight, false);
   });
 }
 
 function updateLight(e) {
-  document.body.style.background =
-    `radial-gradient(circle at ${e.pageX}px ${e.pageY}px, yellow, #000 200px)`;
+  const root = document.documentElement;
+  root.style.setProperty("--dark-light-mode-x", `${e.pageX}px`);
+  root.style.setProperty("--dark-light-mode-y", `${e.pageY}px`);
 }
 
 class DarkLightMode extends HTMLElement {
