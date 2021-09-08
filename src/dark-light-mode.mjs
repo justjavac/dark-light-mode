@@ -108,22 +108,23 @@ template.innerHTML = `<style>
 `;
 
 function turnOnLight(e) {
-  const { top, left, right, bottom } = document.body.getBoundingClientRect();
+  const { width, height } = document.documentElement.getBoundingClientRect();
   const style = document.createElement("style");
   style.id = "dark-light-mode-style";
   style.innerHTML = `body::after {
     content: "";
     position:absolute;
-    top: -${top}px;
-    left: -${left}px;
-    height: ${bottom}px;
-    width: ${right}px;
+    top: 0;
+    left: 0;
+    height: ${height}px;
+    width: ${width}px;
     min-height: 100vh;
+    min-width: 100vw;
     pointer-events: none;
     background: radial-gradient(
       circle at 
-      var(--dark-light-mode-x, ${e.pageX + left}px) 
-      var(--dark-light-mode-y, ${e.pageY + top}px),
+      var(--dark-light-mode-x, ${e.pageX}px) 
+      var(--dark-light-mode-y, ${e.pageY}px),
       rgb(255, 255, 0, 0.3),
       rgb(0, 0, 0, 1) 200px
     );
@@ -145,8 +146,8 @@ function turnOffLight() {
 function updateLight(e) {
   const { top, left } = document.body.getBoundingClientRect();
   const root = document.documentElement;
-  root.style.setProperty("--dark-light-mode-x", `${e.pageX + left}px`);
-  root.style.setProperty("--dark-light-mode-y", `${e.pageY + top}px`);
+  root.style.setProperty("--dark-light-mode-x", `${e.pageX}px`);
+  root.style.setProperty("--dark-light-mode-y", `${e.pageY}px`);
 }
 
 class DarkLightMode extends HTMLElement {
