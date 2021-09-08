@@ -113,7 +113,7 @@ function turnOnLight(e) {
   const { top, left, right, bottom } = document.body.getBoundingClientRect();
   const style = document.createElement("style");
   style.id = "dark-light-mode-style";
-  style.innerText = `body::after {
+  style.innerHTML = `body::after {
     content: "";
     position:absolute;
     top: -${top}px;
